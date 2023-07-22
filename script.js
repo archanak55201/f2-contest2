@@ -148,3 +148,91 @@ for(const x in obj){
     heart[x].style.color="red";
    }
 }
+
+// for(const x in obj){
+// console.log(category[x].parentElement);
+// if(obj[x].type==="veg"){
+// category[x].parentElement.style.display="none";
+// }
+// }
+
+const vbutton= document.getElementById("vegonly");
+vbutton.addEventListener("click",()=>{
+    for(const x in obj){
+        
+        if(obj[x].type==="non-veg"){
+        category[x].parentElement.style.display="none";
+        }else{
+            category[x].parentElement.style.display="block";
+        }
+    }
+})
+
+const nvbutton= document.getElementById("non-vegonly");
+nvbutton.addEventListener("click",()=>{
+    for(const x in obj){
+        
+        if(obj[x].type==="veg"){
+        category[x].parentElement.style.display="none";
+        }
+        else{
+            category[x].parentElement.style.display="block";
+        }
+    }
+})
+
+
+const bothnv= document.getElementById("bothnv");
+bothnv.addEventListener("click",()=>{
+    for(const x in obj){
+        
+        if(obj[x].type==="veg" || obj[x].type==="non-veg"){
+        category[x].parentElement.style.display="block";
+        }
+        
+    }
+})
+
+const abovecheck =document.querySelector("input[name=abovecheck]");
+abovecheck.addEventListener("change",()=>{
+    if (abovecheck.checked) {
+        // console.log("Checkbox is checked..");
+        for(const x in obj){
+             if(obj[x].rating<4){
+            category[x].parentElement.style.display="none";
+            }
+            
+        }
+
+      } else {
+        // console.log("Checkbox is not checked..");
+        for(const x in obj){
+            if(obj[x].rating<4){
+           category[x].parentElement.style.display="block";
+           }
+           
+       }
+      }
+})
+
+const belowcheck=document.querySelector("input[name=belowcheck]")
+belowcheck.addEventListener("change",()=>{
+    if (belowcheck.checked) {
+        // console.log("Checkbox is checked..");
+        for(const x in obj){
+             if(obj[x].rating>4){
+            category[x].parentElement.style.display="none";
+            }
+            
+        }
+
+      } else {
+        // console.log("Checkbox is not checked..");
+        for(const x in obj){
+            if(obj[x].rating>4){
+           category[x].parentElement.style.display="block";
+           }
+           
+       }
+      }
+})
