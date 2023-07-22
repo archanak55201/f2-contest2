@@ -236,3 +236,27 @@ belowcheck.addEventListener("change",()=>{
        }
       }
 })
+const recipeSearch = document.querySelector("input[name=recipe-search]");
+console.log(recipeSearch);
+recipeSearch.addEventListener("keyup",()=>{
+    console.log(recipeSearch.value);
+    let str=recipeSearch.value.toUpperCase();
+    console.log(str);
+
+    for(const x in obj){
+        // for(let i=0;i<str.length;i++){
+            let len=str.length;
+            console.log(obj[x].name,len);
+
+            console.log((obj[x].name).substring(0,len).toUpperCase());
+            const str2=(obj[x].name).substring(0,len).toUpperCase();
+            console.log(str2===str)
+        if(str2===str){
+       category[x].parentElement.style.display="block";
+       
+    }else{
+        category[x].parentElement.style.display="none";
+    }
+   }
+
+})
